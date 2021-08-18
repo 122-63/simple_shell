@@ -1,0 +1,13 @@
+./" Man page for _shell
+./" Contact luisj.valdiviezo20@gmail.com, 3469@holbertonschool.com, to correct errors or types.
+.TH man 3 "26 AUG 2021" "1.0" "_shell"
+.SH NAME
+Shell
+.SH DESCRIPTION
+cloning a shell in linux.
+.SH OPTIONS FORMAT
+
+.SH AUTOR
+Jose Valdiviezo (luisj.valdiviezo20@gmail.com) | Yudi Angola (3469@holbertonschool.com)
+.SH COPYRIGHT
+This code is under a MIT license. 
