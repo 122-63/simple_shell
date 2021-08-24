@@ -1,5 +1,9 @@
 #include "shell.h"
-
+/**
+ * _getenv - to get a var env
+ * @var_env: name of var env
+ * Return: value of va_env
+ */
 char *_getenv(char *var_env)
 {
 	int i = 0;
@@ -12,10 +16,8 @@ char *_getenv(char *var_env)
 		if (_strcmp(env, var_env) == 0)
 		{
 			return (strtok(NULL, "="));
-			                
 		}
 		i++;
 	}
 	return ("Error");
-	
 }
