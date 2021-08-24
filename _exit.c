@@ -1,10 +1,8 @@
 #include "shell.h"
-#include <signal.h>
-#define SIGNQUIT 3
-
+/**
+ * _exit_ - close the process
+ */
 void _exit_(void)
 {
-	pid_t pid = getpid();
-	kill(pid, SIGQUIT);
-	
+	exit(EXIT_SUCCESS);
 }
