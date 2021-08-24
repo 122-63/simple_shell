@@ -1,5 +1,4 @@
 #include "shell.h"
-
 /**
  * _strcmp - compare two string
  * @s1: string
