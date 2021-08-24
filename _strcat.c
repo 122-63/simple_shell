@@ -1,26 +1,19 @@
 #include "shell.h"
 /**
- * _strlen - function the returns the length of s tring
+ * _strcat - concat two strings
  *
- * @s: char variable to find length
- * Return: length of a string
+ * @dest: string for concat
+ * @src: concat string value
+ * Return: new string
  */
-int _strlen(char *s)
-{
-	int l;
-	for (l = 0; s[l] != '\0'; l++)
-		;
-	return (l);
-	
-}
 char *_strcat(char *dest, char *src)
 {
 	char *str;
 	int i = 0;
 	int j = 0;
 	int k = 0;
-	int s1;
-	int s2;
+	size_t s1;
+	size_t s2;
 
 	s1 = _strlen(dest);
 	s2 = _strlen(src);
@@ -30,7 +23,6 @@ char *_strcat(char *dest, char *src)
 	{
 		free(str);
 		exit(98);
-		  
 	}
 
 	while (dest[i])
@@ -38,17 +30,14 @@ char *_strcat(char *dest, char *src)
 		str[k] = dest[i];
 		i++;
 		k++;
-		    
 	}
 	while (src[j])
 	{
 		str[k] = src[j];
 		j++;
 		k++;
-		    
 	}
 	str[k] = '\0';
 
 	return (str);
-	
 }
