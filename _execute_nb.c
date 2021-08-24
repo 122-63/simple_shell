@@ -1,6 +1,11 @@
 #include "shell.h"
-
-int _execute_nb(char **tokens)
+/**
+ * _execute_nb - search and execute the command no built in
+ * @tokens: array with buffer split
+ * @counter: counter commands enter
+ * Return: status
+ */
+int _execute_nb(char **tokens, int counter __attribute__((unused)))
 {
 	int index, cmp_s, status = 0;
 	void (*noBuiltIn)();
@@ -9,7 +14,6 @@ int _execute_nb(char **tokens)
 		{"exit", _exit_},
 		{".", _dot},
 		{NULL}
-		
 	};
 
 	index = 0;
@@ -23,11 +27,8 @@ int _execute_nb(char **tokens)
 			noBuiltIn();
 			status = 1;
 			break;
-			                
 		}
 		index++;
-		        
 	}
 	return (status);
-	
 }
