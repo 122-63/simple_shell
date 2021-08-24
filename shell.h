@@ -19,6 +19,7 @@ typedef struct noBuiltIn
 {
 	char *command;
 	void (*command_function)(void);
+
 } t_noBuiltIn;
 char *_getenv(char *var_env);
 char **split_string(char *buffer, const char *del);
