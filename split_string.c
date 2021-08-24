@@ -1,12 +1,18 @@
 #include "shell.h"
-
+/**
+ * split_string - split a string
+ *
+ * @buffer: complete string
+ * @del: delimeter
+ * Return: array of string
+ */
 char **split_string(char *buffer, const char *del)
 {
 	char **tokens;
 	char *token;
 	int index;
 
-	tokens = malloc(64 * sizeof(char *));
+	tokens = malloc(20 * sizeof(char *));
 	if (tokens == NULL)
 	{
 		free(tokens);
