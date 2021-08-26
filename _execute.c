@@ -9,7 +9,7 @@
  */
 int _execute(char *new_path, char *filename, char **tokens, int counter)
 {
-	pid_t pid;
+	id_t pid;
 	int s_execve = 0, status_w;
 
 	pid = fork();
@@ -17,7 +17,7 @@ int _execute(char *new_path, char *filename, char **tokens, int counter)
 	{
 		if (pid == 0)
 		{
-			s_execve = execve(new_path, tokens, NULL);
+			s_execve = execve(new_path, tokens, environ);
 			if (s_execve == -1)
 				_print_error(filename, tokens[0], counter);
 		}
