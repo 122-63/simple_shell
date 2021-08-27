@@ -8,7 +8,7 @@
 int main(int ac __attribute__((unused)), char *av[])
 {
 
-	char *buffer;
+	char *buffer = NULL;
 	size_t b_size;
 	ssize_t len;
 	const char *del = " \t\r\n\a";
@@ -20,8 +20,8 @@ int main(int ac __attribute__((unused)), char *av[])
 		counter++;
 		if ((isatty(fileno(stdin))))
 			write(STDOUT_FILENO, "$ ", 3);
+		_signal();
 		len = getline(&buffer, &b_size, stdin);
-
 		if (len != -1)
 		{
 			if (buffer[0] == '\n')
@@ -30,9 +30,10 @@ int main(int ac __attribute__((unused)), char *av[])
 				continue;
 			}
 			tokens = split_string(buffer, del);
-			status = _execute_nb(tokens, counter);
+			status = _execute_nb(tokens, buffer);
 			if (status == 0)
-				_built_in(tokens, av[0], counter);
+				status = _built_in(tokens, av[0], counter);
+			free(tokens);
 		}
 		else if (len == EOF)
 		{
@@ -41,6 +42,8 @@ int main(int ac __attribute__((unused)), char *av[])
 				write(STDOUT_FILENO, "\n", 1);
 			return (0);
 		}
+		else
+			free(buffer);
 	}
 	return (0);
 }
