@@ -9,6 +9,7 @@
 #include <unistd.h>
 #include <sys/wait.h>
 #include <stddef.h>
+#include <signal.h>
 extern char **environ;
 /**
  * struct noBuiltIn - command no built in
@@ -30,10 +31,11 @@ void _exit_(void);
 char *_strdup(char *str);
 int _built_in(char **tokens, char *filename, int counter);
 int _execute(char *new_path, char *filename, char **tokens, int counter);
-int _execute_nb(char **tokens, int counter);
+int _execute_nb(char **tokens, char *buffer);
 void _dot(void);
 size_t _strlen(char *s);
 void _print_error(char *filename, char *command, int counter);
 void _check_path(char **tokens, char *filename, int counter);
+int _signal(void);
 
 #endif
